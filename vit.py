@@ -6,11 +6,14 @@ import torch
 import datasets
 import numpy as np
 
-dataset = datasets.load_dataset("huggingface/cats-image")
-image = dataset["test"]["image"][0]
+# dataset = datasets.load_dataset("huggingface/cats-image")
+# dataset = datasets.load_dataset("data/oxford")
+dataset = datasets.load_dataset("data/vehicle")
+image = dataset["train"]["image"][0]
 
 feature_extractor = ViTFeatureExtractor.from_pretrained("google/vit-base-patch16-224")
 model = ViTModel.from_pretrained("google/vit-base-patch16-224")
+
 
 def image_to_vec(image):
     ls = {}
